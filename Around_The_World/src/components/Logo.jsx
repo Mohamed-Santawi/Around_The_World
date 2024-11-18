@@ -1,7 +1,7 @@
 import logo from "../assets/logo.png";
 export function Logo() {
   return (
-    <a className="flex items-center gap-3 font-semibold font text-2xl">
+    <a className="font flex items-center gap-3 text-2xl font-semibold">
       <img src={logo} alt="Logo Image" />
       Around the world
     </a>
