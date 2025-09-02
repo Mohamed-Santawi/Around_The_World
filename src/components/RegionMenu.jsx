@@ -15,6 +15,13 @@ export function RegionMenu(props) {
   const { countriesList, filteredCountries } = props;
   const changeHandler = (e) => {
     const region = e.label;
+
+    // Ensure countriesList is an array
+    if (!Array.isArray(countriesList)) {
+      console.error("countriesList is not an array:", countriesList);
+      return;
+    }
+
     const filteredList =
       region === "All region"
         ? countriesList

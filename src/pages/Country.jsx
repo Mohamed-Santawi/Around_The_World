@@ -5,7 +5,6 @@ import { ShowMessage } from "../components";
 export function Country() {
   const { country } = useParams();
   const { result, isError, isLoading } = useFetchData(country);
-  console.log(result);
   return (
     <>
       {isError && <ShowMessage message={"Something Went Wrong ....!"} />}

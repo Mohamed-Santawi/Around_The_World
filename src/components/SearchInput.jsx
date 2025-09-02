@@ -4,15 +4,26 @@ export function SearchInput(props) {
   const submitHandler = (e) => {
     e.preventDefault();
     const searchTerm = e.target.elements.search.value.trim();
+    console.log("Search term:", searchTerm);
+    console.log("Countries list:", countriesList);
+
+    // Ensure countriesList is an array
+    if (!Array.isArray(countriesList)) {
+      console.error('countriesList is not an array:', countriesList);
+      return;
+    }
+
     const filteredList =
       !searchTerm || searchTerm === ""
         ? countriesList
-        : countriesList.filter((country) =>
-            country.name.official
+        : countriesList.filter((country) => {
+            console.log("Checking country:", country.name);
+            return country.name.common
               .toLowerCase()
-              .includes(searchTerm.toLowerCase()),
-          );
+              .includes(searchTerm.toLowerCase());
+          });
 
+    console.log("Filtered list:", filteredList);
     filteredCountries(filteredList);
   };
   return (
